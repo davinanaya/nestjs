@@ -17,12 +17,10 @@ export class User extends BaseModel{
         minlength: [6, 'Must be at least 6 character']
     })
     password: string;
-    @prop({enum: UserRole})
+    @prop({enum: UserRole, default: UserRole.User})
     role?: UserRole;
-    @prop()
-    firstName?: string;
-    @prop()
-    lastName?: string;
+    @prop() firstName?: string;
+    @prop() lastName?: string;
     @prop()
     get fullName(): string{
         return `${this.firstName} ${this.lastName}`;
